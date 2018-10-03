@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
 
-    public int healthPublic;
-    static Color[] s_colors;
-	// Use this for initialization
-	void Start () {
-        s_colors = new Color[4];
-        s_colors[0] = new Color(0,0.5f,0);
-        s_colors[1] = new Color(1, 1, 0);
-        s_colors[2] = new Color(1, 0.5f, 0);
-        s_colors[3] = new Color(0.5f, 0, 0);
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        if (healthPublic == 0)
-            Destroy(gameObject);
-        else
+    public int health = 0;
+    public Material[] healthMaterials = new Material[4];
+    public Renderer m_CurrentRenderer = null;
+
+    private void OnCollisionEnter(Collision iCollision)
+    {
+        if(iCollision.gameObject.CompareTag("Ball"))
         {
-            GetComponent<Renderer>().material.SetColor("_Color",s_colors[healthPublic-1]);
-         }
-	}
+            health--;
+        }
+    }
+
+    private void TakeDamage(int iNbDamage = 1)
+    {
+        health -= iNbDamage;
+        if(health == 0)
+        {
+            Destroy(gameObject);
+        }
+
+        m_CurrentRenderer.material = healthMaterials[health - 1];
+    }
 }
