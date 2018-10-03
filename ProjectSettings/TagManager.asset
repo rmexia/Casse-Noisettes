@@ -7,6 +7,10 @@ TagManager:
   - VerticalCollider
   - HorizontalCollider
   - Ball
+  - BottomCollider
+  - TopCollider
+  - RightCollider
+  - LeftCollider
   layers:
   - Default
   - TransparentFX

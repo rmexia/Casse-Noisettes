@@ -195,8 +195,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1400597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.451377, y: -4.22256, z: 0.014146386}
-  m_LocalScale: {x: 15, y: 0.1, z: 1}
+  m_LocalPosition: {x: -1.4514, y: -3.17, z: 0.014146386}
+  m_LocalScale: {x: 19.39922, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1292694273}
   m_RootOrder: 3
@@ -436,14 +436,6 @@ Prefab:
     - target: {fileID: 1307657660979704, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
       propertyPath: m_Name
       value: Brique 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4999018892844716, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4999018892844716, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
@@ -700,7 +692,7 @@ GameObject:
   - component: {fileID: 510610185}
   m_Layer: 0
   m_Name: LeftWall
-  m_TagString: VerticalCollider
+  m_TagString: RightCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -712,8 +704,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 510610183}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.942277, y: 0.64559317, z: 0.014146386}
-  m_LocalScale: {x: 0.1, y: 9.12, z: 1}
+  m_LocalPosition: {x: -11.29, y: 1.59, z: 0.014146386}
+  m_LocalScale: {x: 0.5, y: 9.116776, z: 1}
   m_Children: []
   m_Father: {fileID: 1292694273}
   m_RootOrder: 0
@@ -1158,7 +1150,7 @@ GameObject:
   - component: {fileID: 798799988}
   m_Layer: 0
   m_Name: UpWall
-  m_TagString: HorizontalCollider
+  m_TagString: BottomCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1170,8 +1162,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 798799986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.451377, y: 5.21744, z: 0.014146386}
-  m_LocalScale: {x: 15, y: 0.1, z: 1}
+  m_LocalPosition: {x: -1.4514, y: 6.42, z: 0.014146386}
+  m_LocalScale: {x: 20.688961, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1292694273}
   m_RootOrder: 2
@@ -1356,7 +1348,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 886008889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1373,7 +1365,7 @@ GameObject:
   - component: {fileID: 886123120}
   m_Layer: 0
   m_Name: RightWall
-  m_TagString: VerticalCollider
+  m_TagString: LeftCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1385,8 +1377,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 886123118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.0127225, y: 0.64559317, z: 0.014146386}
-  m_LocalScale: {x: 0.099999994, y: 9.12, z: 1}
+  m_LocalPosition: {x: 8.47, y: 1.64, z: 0.014146386}
+  m_LocalScale: {x: 0.5, y: 9.116776, z: 1}
   m_Children: []
   m_Father: {fileID: 1292694273}
   m_RootOrder: 1
@@ -1611,18 +1603,6 @@ Prefab:
       propertyPath: m_Name
       value: Brique 9
       objectReference: {fileID: 0}
-    - target: {fileID: 4999018892844716, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4999018892844716, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1307657660979704, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
   m_IsPrefabAsset: 0
@@ -1775,7 +1755,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1085986544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14, y: -3.42, z: -0.0036936011}
+  m_LocalPosition: {x: 3.13, y: -2.43, z: -0.0036936011}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1793,7 +1773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  speed: 10
+  speed: 20
   previousVelocity: {x: 0, y: 0, z: 0}
 --- !u!54 &1085986550
 Rigidbody:
@@ -2017,14 +1997,6 @@ Prefab:
       propertyPath: m_Name
       value: Brique 6
       objectReference: {fileID: 0}
-    - target: {fileID: 4999018892844716, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4999018892844716, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.45
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a098b3ce970053b4a8f26abf666b2edb, type: 2}
   m_IsPrefabAsset: 0
@@ -2137,7 +2109,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4276313661702166, guid: 45fe53871ff396f47912308e6bbc8ed6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.35
+      value: -3.22
       objectReference: {fileID: 0}
     - target: {fileID: 4276313661702166, guid: 45fe53871ff396f47912308e6bbc8ed6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2179,6 +2151,11 @@ Prefab:
     - target: {fileID: 1607765296966956, guid: 45fe53871ff396f47912308e6bbc8ed6, type: 2}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114698884214466954, guid: 45fe53871ff396f47912308e6bbc8ed6,
+        type: 2}
+      propertyPath: m_Speed
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45fe53871ff396f47912308e6bbc8ed6, type: 2}

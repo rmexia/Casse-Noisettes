@@ -14,7 +14,7 @@ public class BallRebound : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		rb.velocity = new Vector3 (previousVelocity.x, previousVelocity.y, previousVelocity.z);
 	}
 
 	void OnCollisionEnter(Collision collision) 
@@ -26,7 +26,7 @@ public class BallRebound : MonoBehaviour {
 			ManageCollisionWithPlayer (collision);
 			previousVelocity = new Vector3 (rb.velocity.x, rb.velocity.y, rb.velocity.z);
 		}
-		else if (collision.gameObject.tag == "VerticalCollider") 
+		else if (collision.gameObject.tag == "LeftCollider" && previousVelocity.x > 0) 
 		{
 			rb.velocity = new Vector3 (-previousVelocity.x, previousVelocity.y, previousVelocity.z);
 			previousVelocity = new Vector3 (rb.velocity.x, rb.velocity.y, rb.velocity.z);
@@ -36,7 +36,28 @@ public class BallRebound : MonoBehaviour {
 				brick.TakeDamage ();
 			}
 		}
-		else if (collision.gameObject.tag == "HorizontalCollider") 
+		else if (collision.gameObject.tag == "RightCollider" && previousVelocity.x < 0) 
+		{
+			rb.velocity = new Vector3 (-previousVelocity.x, previousVelocity.y, previousVelocity.z);
+			previousVelocity = new Vector3 (rb.velocity.x, rb.velocity.y, rb.velocity.z);
+			Brick brick = collision.gameObject.GetComponentInParent<Brick> ();
+			if (brick) 
+			{
+				brick.TakeDamage ();
+			}
+		}
+		else if (collision.gameObject.tag == "BottomCollider" && previousVelocity.y > 0) 
+		{
+			rb.velocity = new Vector3 (previousVelocity.x, -previousVelocity.y, previousVelocity.z);
+			previousVelocity = new Vector3 (rb.velocity.x, rb.velocity.y, rb.velocity.z);
+			Debug.Log (previousVelocity);
+			Brick brick = collision.gameObject.GetComponentInParent<Brick> ();
+			if (brick) 
+			{
+				brick.TakeDamage ();
+			}
+		}
+		else if (collision.gameObject.tag == "TopCollider" && previousVelocity.y < 0) 
 		{
 			rb.velocity = new Vector3 (previousVelocity.x, -previousVelocity.y, previousVelocity.z);
 			previousVelocity = new Vector3 (rb.velocity.x, rb.velocity.y, rb.velocity.z);

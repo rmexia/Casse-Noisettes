@@ -28,8 +28,10 @@ public class Bar : MonoBehaviour
 		//On démarre le jeu si l'utilisateur press space.
 		if (Input.GetKey(KeyCode.Space))
 		{
-			ball.GetComponent<Rigidbody>().velocity = new Vector3 (2.45f, 2.45f, 0);
-			ball.GetComponent<BallRebound>().previousVelocity = new Vector3 (2.45f, 2.45f, 0);
+			BallRebound ballRebound = ball.GetComponent<BallRebound> ();
+			float ballSpeed = ballRebound.speed;
+			ball.GetComponent<Rigidbody>().velocity = new Vector3 (0.5f * ballSpeed, 0.5f * ballSpeed, 0);
+			ballRebound.previousVelocity = new Vector3 (0.5f * ballSpeed, 0.5f * ballSpeed, 0);
 		}
         //si la distance entre la barre invisible et la barre visible est supérieur à step, on téléporte la barre visible sur la barre invisible.
         if (Vector3.Distance(m_VisibleBar.position, m_VirtualBar.position) > m_Step)
