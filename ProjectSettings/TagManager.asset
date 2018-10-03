@@ -6,6 +6,7 @@ TagManager:
   tags:
   - VerticalCollider
   - HorizontalCollider
+  - Ball
   layers:
   - Default
   - TransparentFX

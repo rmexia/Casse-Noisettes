@@ -8,22 +8,23 @@ public class Brick : MonoBehaviour {
     public Material[] healthMaterials = new Material[4];
     public Renderer m_CurrentRenderer = null;
 
-    private void OnCollisionEnter(Collision iCollision)
+    /*private void OnCollisionEnter(Collision iCollision)
     {
         if(iCollision.gameObject.CompareTag("Ball"))
         {
             TakeDamage();
         }
-    }
+    }*/	
 
-    private void TakeDamage(int iNbDamage = 1)
+    public void TakeDamage(int iNbDamage = 1)
     {
         health -= iNbDamage;
-        if(health == 0)
-        {
-            Destroy(gameObject);
-        }
-
-        m_CurrentRenderer.material = healthMaterials[health - 1];
+		if (health == 0) {
+			Destroy (gameObject);
+		}
+		else
+		{
+			m_CurrentRenderer.material = healthMaterials[health - 1];
+		}
     }
 }

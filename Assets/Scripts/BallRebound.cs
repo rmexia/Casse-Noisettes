@@ -5,11 +5,11 @@ using UnityEngine;
 public class BallRebound : MonoBehaviour {
 	
 	public Rigidbody rb;
-
+	public float speed;
+	public Vector3 previousVelocity;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-		rb.velocity = new Vector3 (0.45f, - 0.45f, 0);
 	}
 	
 	// Update is called once per frame
@@ -19,17 +19,33 @@ public class BallRebound : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) 
 	{
+		Debug.Log ("Collision with " + collision.gameObject.tag);
 		if (collision.gameObject.tag == "Player")
 		{
+			Debug.Log ("Oui");
 			ManageCollisionWithPlayer (collision);
+			previousVelocity = new Vector3 (rb.velocity.x, rb.velocity.y, rb.velocity.z);
 		}
 		else if (collision.gameObject.tag == "VerticalCollider") 
 		{
-			rb.velocity = new Vector3 (-rb.velocity.x, rb.velocity.y, rb.velocity.z);
+			rb.velocity = new Vector3 (-previousVelocity.x, previousVelocity.y, previousVelocity.z);
+			previousVelocity = new Vector3 (rb.velocity.x, rb.velocity.y, rb.velocity.z);
+			Brick brick = collision.gameObject.GetComponentInParent<Brick> ();
+			if (brick) 
+			{
+				brick.TakeDamage ();
+			}
 		}
 		else if (collision.gameObject.tag == "HorizontalCollider") 
 		{
-			rb.velocity = new Vector3 (rb.velocity.x, -rb.velocity.y, rb.velocity.z);
+			rb.velocity = new Vector3 (previousVelocity.x, -previousVelocity.y, previousVelocity.z);
+			previousVelocity = new Vector3 (rb.velocity.x, rb.velocity.y, rb.velocity.z);
+			Debug.Log (previousVelocity);
+			Brick brick = collision.gameObject.GetComponentInParent<Brick> ();
+			if (brick) 
+			{
+				brick.TakeDamage ();
+			}
 		}
 	}
 
@@ -46,7 +62,7 @@ public class BallRebound : MonoBehaviour {
 		{
 			scaledRelativeX = 0.9f;
 		}
-		rb.velocity = new Vector3 (scaledRelativeX, 1 - Mathf.Abs(scaledRelativeX), rb.velocity.z);
-		Debug.Log ("velocity " + rb.velocity);
+		rb.velocity = new Vector3 (scaledRelativeX * speed, (1 - Mathf.Abs(scaledRelativeX)) * speed, rb.velocity.z * speed);
+		Debug.Log (scaledRelativeX);
 	}
 }

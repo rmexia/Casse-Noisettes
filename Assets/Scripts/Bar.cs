@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bar : MonoBehaviour
 {
+	public GameObject ball;
     [SerializeField] private float m_Speed = 3f;
     [SerializeField] private float m_Step = 0.1f;
     [SerializeField] private Transform m_VisibleBar = null;
@@ -21,8 +22,15 @@ public class Bar : MonoBehaviour
         {
             translation = Vector3.right * m_Speed;
         }
+
         m_VirtualBar.Translate(translation);
 
+		//On démarre le jeu si l'utilisateur press space.
+		if (Input.GetKey(KeyCode.Space))
+		{
+			ball.GetComponent<Rigidbody>().velocity = new Vector3 (2.45f, 2.45f, 0);
+			ball.GetComponent<BallRebound>().previousVelocity = new Vector3 (2.45f, 2.45f, 0);
+		}
         //si la distance entre la barre invisible et la barre visible est supérieur à step, on téléporte la barre visible sur la barre invisible.
         if (Vector3.Distance(m_VisibleBar.position, m_VirtualBar.position) > m_Step)
         {
