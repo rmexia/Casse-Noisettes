@@ -12,7 +12,7 @@ public class Brick : MonoBehaviour {
     {
         if(iCollision.gameObject.CompareTag("Ball"))
         {
-            health--;
+            TakeDamage();
         }
     }
 
