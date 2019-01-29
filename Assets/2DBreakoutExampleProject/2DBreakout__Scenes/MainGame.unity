@@ -2000,6 +2000,16 @@ Prefab:
       propertyPath: maxVelocity
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 114030668206050942, guid: 99d270a8245fd4f478d195cca61ad334,
+        type: 2}
+      propertyPath: secondsBeforeBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114030668206050942, guid: 99d270a8245fd4f478d195cca61ad334,
+        type: 2}
+      propertyPath: paddle
+      value: 
+      objectReference: {fileID: 1232186854}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d270a8245fd4f478d195cca61ad334, type: 2}
   m_IsPrefabAsset: 0
@@ -5995,6 +6005,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4787143154362966, guid: 2f00d0b8935e34c20a05309d1085920e,
     type: 2}
   m_PrefabInternal: {fileID: 1216496266}
+--- !u!114 &1232186854 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114703664242572246, guid: 99d270a8245fd4f478d195cca61ad334,
+    type: 2}
+  m_PrefabInternal: {fileID: 343252129}
+  m_Script: {fileID: 11500000, guid: 34db09b08e54744eca42c06f473a154b, type: 3}
 --- !u!1001 &1284285509
 Prefab:
   m_ObjectHideFlags: 0

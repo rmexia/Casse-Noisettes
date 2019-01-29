@@ -25,7 +25,10 @@ public class Ball_script : MonoBehaviour
     public float maxVelocityMagnitude = 15f;
     public Text txtScore;	//Connected to the Score text
     public AudioClip sfxBrickHit;	//Connected to SFX of the Brick Hit
-	public AudioClip sfxPaddleBorderHit;	//Connected to SFX of the Paddle Border Hit
+	public AudioClip sfxPaddleBorderHit;    //Connected to SFX of the Paddle Border Hit
+    [Header("Breaking the game")]
+    public float secondsBeforeBounce = 0f;
+    public Paddle_script paddle = null;
 
 
 	//Private Variables
@@ -76,18 +79,53 @@ public class Ball_script : MonoBehaviour
 		//If a collision caused by a Brick 
         if (coll.gameObject.tag == "Brick")
         {
-            audioSource.clip = sfxBrickHit;		//Load Brick Hit SFX to the Audio Source component
-			audioSource.Play();		//Play Brick Hit SFX
-            totalScore += coll.gameObject.GetComponent<Brick_script>().score;		//Add this Brick score to the total score 
-            txtScore.text = totalScore.ToString("000000");		//Show the total score as a Text containing 6 digits
-            Destroy(coll.gameObject);		//Destroy the brick
+            if (!m_IsHitting)
+            {
+                StartCoroutine(HitBrick(coll.gameObject.GetComponent<Brick_script>()));
+            }
         }
 
 		//If a collision caused by a Paddle or a  Border
         if (coll.gameObject.tag == "Paddle" || coll.gameObject.tag == "Border")
         {
-			audioSource.clip = sfxPaddleBorderHit;		//Load Paddle/Border Hit SFX to the Audio Source component
-			audioSource.Play();		//Play Brick Hit SFX
+            if (!m_IsHitting)
+            {
+                StartCoroutine(HitPaddle());    
+            }
         }
+    }
+
+    private IEnumerator FreezeMovement()
+    {
+        Vector2 currentForce = rb2D.velocity;
+        rb2D.velocity = Vector2.zero;
+        rb2D.isKinematic = true;
+        //paddle.canMove = false;
+        yield return new WaitForSeconds(secondsBeforeBounce);
+        rb2D.isKinematic = false;
+        rb2D.velocity = currentForce;
+        //paddle.canMove = true;
+    }
+
+    private bool m_IsHitting = false;
+    private IEnumerator HitBrick(Brick_script iBrick)
+    {
+        m_IsHitting = true;
+        yield return FreezeMovement();
+        audioSource.clip = sfxBrickHit;     //Load Brick Hit SFX to the Audio Source component
+        audioSource.Play();     //Play Brick Hit SFX
+        totalScore += iBrick.score;       //Add this Brick score to the total score 
+        txtScore.text = totalScore.ToString("000000");      //Show the total score as a Text containing 6 digits
+        Destroy(iBrick.gameObject);		//Destroy the brick
+        m_IsHitting = false;
+    }
+
+    private IEnumerator HitPaddle()
+    {
+        m_IsHitting = true;
+        yield return FreezeMovement();
+        audioSource.clip = sfxPaddleBorderHit;      //Load Paddle/Border Hit SFX to the Audio Source component
+        audioSource.Play();		//Play Brick Hit SFX
+        m_IsHitting = false;
     }
 }

@@ -29,6 +29,7 @@ public class Paddle_script : MonoBehaviour
 	//Public Variables will appear in the Inspector
     public Boundary boundary;		//Create an object from class
     public float paddleSpeed;		//Speed of the paddle
+    public bool canMove = true;
 
 	//Private Variables
 	private Rigidbody2D rb2D;		//Will Connect with the Ball Rigidbody 2D Component
@@ -42,11 +43,19 @@ public class Paddle_script : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-		float moveHorizontal = Input.GetAxisRaw ("Horizontal");	//Get if Any Horizontal Keys pressed ((A or D) or (Left or Right) Buttons)
-		Vector2 movement = new Vector2 (moveHorizontal, 0f);	//Put moveHorizontal in a Vector2 Variable (x,y)...moveHorizontal will be the x axis
-		rb2D.velocity = movement * paddleSpeed;		//Add Velocity to the player ship rigidbody by multiplying the movement with paddleSpeed
+        if (canMove)
+        {
+            float moveHorizontal = Input.GetAxisRaw("Horizontal");  //Get if Any Horizontal Keys pressed ((A or D) or (Left or Right) Buttons)
+            Vector2 movement = new Vector2(moveHorizontal, 0f); //Put moveHorizontal in a Vector2 Variable (x,y)...moveHorizontal will be the x axis
+            rb2D.velocity = movement * paddleSpeed;     //Add Velocity to the player ship rigidbody by multiplying the movement with paddleSpeed
 
-        //Lock the position of the Paddle in the screen by putting a boundaries
-        rb2D.position = new Vector2 (Mathf.Clamp (rb2D.position.x, boundary.xMin, boundary.xMax),-4f);
+            //Lock the position of the Paddle in the screen by putting a boundaries
+            rb2D.position = new Vector2(Mathf.Clamp(rb2D.position.x, boundary.xMin, boundary.xMax), -4f);
+        }
+        else
+        {
+            rb2D.velocity = Vector2.zero;
+        }
+		
 	}
 }
