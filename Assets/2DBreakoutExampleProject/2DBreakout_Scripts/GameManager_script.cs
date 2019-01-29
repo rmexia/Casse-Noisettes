@@ -25,6 +25,7 @@ public class GameManager_script : MonoBehaviour
 	public GameObject gameOverPanel;	//Connected to the Game Over Panel
 	public static bool startGame = false;	//Boolean to know if the game started or not
 	public static bool gameOver = false;	//Boolean to know if the game is over or not
+    public Ball_script ball = null;
 
 	// Update is called once per frame
 	void Update () 
@@ -38,9 +39,12 @@ public class GameManager_script : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && gameOver == true)
         {
-			startGame = false;		//Turn Start Game boolean to false
-			gameOver = false;		//Turn Game Over boolean to false
-            SceneManager.LoadScene("MainGame");		//Load Main Game Scene
+            startGame = false;		//Turn Start Game boolean to false
+            ball.ResetBallPos();
+            gameOver = false;		//Turn Game Over boolean to false
+            //SceneManager.LoadScene("MainGame");		//Load Main Game Scene
         }
 	}
+
+    
 }

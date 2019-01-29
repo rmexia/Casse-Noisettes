@@ -28,9 +28,11 @@ public class GameOverDetector_script : MonoBehaviour
 		//If a collision caused by the Ball
         if (coll.gameObject.tag == "Ball")
         {
-            Destroy(coll.gameObject);		//Destroy the ball
+            //Destroy(coll.gameObject);		//Destroy the ball
 			GameManager_script.gameOver = true;		//Turn Game Over boolean to true
-			gameOverPanel.SetActive(true);		//Turn on the Game over Panel
+
+            Time.timeScale = 0;
+			//gameOverPanel.SetActive(true);		//Turn on the Game over Panel
         }
     }
 }
