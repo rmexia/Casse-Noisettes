@@ -33,14 +33,15 @@ public class Paddle_script : MonoBehaviour
     public bool canMove = true;
     public float inputLag = 0f;
 
-	//Private Variables
-	private Rigidbody2D rb2D;		//Will Connect with the Ball Rigidbody 2D Component
+    //Private Variables
+    private Rigidbody2D rb2D;		//Will Connect with the Ball Rigidbody 2D Component
 
 	// Use this for initialization
 	void Start () 
     {
 		rb2D = GetComponent<Rigidbody2D>();     //Connect rb2D with the Ball Rigidbody 2D Component
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () 

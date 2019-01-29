@@ -2015,6 +2015,11 @@ Prefab:
       propertyPath: inputDelay
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114703664242572246, guid: 99d270a8245fd4f478d195cca61ad334,
+        type: 2}
+      propertyPath: lala
+      value: 
+      objectReference: {fileID: 605500737}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d270a8245fd4f478d195cca61ad334, type: 2}
   m_IsPrefabAsset: 0
@@ -3260,6 +3265,8 @@ GameObject:
   - component: {fileID: 605500734}
   - component: {fileID: 605500733}
   - component: {fileID: 605500732}
+  - component: {fileID: 605500737}
+  - component: {fileID: 605500738}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3341,6 +3348,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605500737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605500731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926ed16319343a84c977bde7b50fae33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FPS: 1
+--- !u!114 &605500738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605500731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3aae87b37fcc24f9a9ead9ad2d44f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fps: 60
+  switchOnOff: 0
+  m_FPSModifier: {fileID: 605500737}
 --- !u!1 &615812110
 GameObject:
   m_ObjectHideFlags: 0
