@@ -27,7 +27,7 @@ public class Ball_script : MonoBehaviour
     public AudioClip sfxBrickHit;	//Connected to SFX of the Brick Hit
 	public AudioClip sfxPaddleBorderHit;    //Connected to SFX of the Paddle Border Hit
     [Header("Breaking the game")]
-    public float secondsBeforeBounce = 0f;
+    public float bounceLag = 0f;
     public Paddle_script paddle = null;
 
 
@@ -101,7 +101,7 @@ public class Ball_script : MonoBehaviour
         rb2D.velocity = Vector2.zero;
         rb2D.isKinematic = true;
         //paddle.canMove = false;
-        yield return new WaitForSeconds(secondsBeforeBounce);
+        yield return new WaitForSeconds(bounceLag);
         rb2D.isKinematic = false;
         rb2D.velocity = currentForce;
         //paddle.canMove = true;
