@@ -23,9 +23,11 @@ public class GameManager_script : MonoBehaviour
 	//Public Variables will appear in the Inspector 
 	public GameObject mainMenuPanel;	//Connected to the Main Menu Panel
 	public GameObject gameOverPanel;	//Connected to the Game Over Panel
-	public static bool startGame = false;	//Boolean to know if the game started or not
-	public static bool gameOver = false;	//Boolean to know if the game is over or not
+	public static bool startGame = false;   //Boolean to know if the game started or not
+    public static bool ballOut = false;
+    public static bool gameOver = false;	//Boolean to know if the game is over or not
     public Ball_script ball = null;
+    public float respawnTime = .5f;
 
 	// Update is called once per frame
 	void Update () 
@@ -37,6 +39,11 @@ public class GameManager_script : MonoBehaviour
             mainMenuPanel.SetActive(false);		//Turn off Main Menu Panel
         }
 
+        if (ballOut)
+        {
+            StartCoroutine(RespawnBall());
+        }
+
         if (Input.GetButtonDown("Jump") && gameOver == true)
         {
             startGame = false;		//Turn Start Game boolean to false
@@ -46,5 +53,11 @@ public class GameManager_script : MonoBehaviour
         }
 	}
 
-    
+    private IEnumerator RespawnBall()
+    {
+        ballOut = false;
+        yield return new WaitForSeconds(respawnTime);
+        startGame = true;
+        ball.ResetBallPos();
+    }
 }

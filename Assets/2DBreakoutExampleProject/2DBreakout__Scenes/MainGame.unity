@@ -1537,6 +1537,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4787143154362966, guid: 2f00d0b8935e34c20a05309d1085920e,
     type: 2}
   m_PrefabInternal: {fileID: 230160281}
+--- !u!114 &238832053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114030668206050942, guid: 99d270a8245fd4f478d195cca61ad334,
+    type: 2}
+  m_PrefabInternal: {fileID: 343252129}
+  m_Script: {fileID: 11500000, guid: 4e505c17618e14e29ae5f42f3ba9b2b6, type: 3}
 --- !u!1001 &239946337
 Prefab:
   m_ObjectHideFlags: 0
@@ -3658,6 +3664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuPanel: {fileID: 245425299}
   gameOverPanel: {fileID: 1407457638}
+  ball: {fileID: 238832053}
+  respawnTime: 1
 --- !u!1001 &652699675
 Prefab:
   m_ObjectHideFlags: 0

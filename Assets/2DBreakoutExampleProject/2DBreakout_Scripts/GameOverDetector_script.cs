@@ -29,9 +29,9 @@ public class GameOverDetector_script : MonoBehaviour
         if (coll.gameObject.tag == "Ball")
         {
             //Destroy(coll.gameObject);		//Destroy the ball
-			GameManager_script.gameOver = true;		//Turn Game Over boolean to true
-
-            Time.timeScale = 0;
+			GameManager_script.ballOut = true;		//Turn Game Over boolean to true
+            coll.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            //Time.timeScale = 0;
 			//gameOverPanel.SetActive(true);		//Turn on the Game over Panel
         }
     }

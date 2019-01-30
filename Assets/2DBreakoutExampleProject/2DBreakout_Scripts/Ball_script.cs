@@ -60,9 +60,9 @@ public class Ball_script : MonoBehaviour
         {
             transform.parent = null;	//Disconnect the Ball from the Paddle
 			ballInPlay = true;		//The Ball is inPlay (is moving)
-			rb2D.isKinematic = false;		//Uncheck the isKinematic in the Rigidbody 2D
+			rb2D.isKinematic = false;       //Uncheck the isKinematic in the Rigidbody 2D
 
-            if(Input.GetAxisRaw ("Horizontal") == 0f)		//Checking if the Paddle is standing still
+            if (Input.GetAxisRaw ("Horizontal") == 0f)		//Checking if the Paddle is standing still
 				rb2D.AddForce(new Vector2(1f, ballInitialVelocity));	//Adding force to the Balle
 			else if(Input.GetAxisRaw ("Horizontal") > 0f)		//Checking if the Paddle is moving right
 				rb2D.AddForce(new Vector2(ballInitialVelocity, ballInitialVelocity));		//Adding force to the Balle
