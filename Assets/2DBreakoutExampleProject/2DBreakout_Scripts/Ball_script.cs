@@ -73,6 +73,16 @@ public class Ball_script : MonoBehaviour
 
 	}
 
+    public void ResetBallPos()
+    {
+        transform.SetParent(paddle.transform);
+        rb2D.velocity = Vector2.zero;
+        rb2D.isKinematic = true;
+        transform.localPosition = new Vector3(0.0f, 0.3f, 0.0f);
+        ballInPlay = false;
+
+    }
+
 	//Will be called when a Collision Enter accure 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -128,4 +138,6 @@ public class Ball_script : MonoBehaviour
         audioSource.Play();		//Play Brick Hit SFX
         m_IsHitting = false;
     }
+
+    
 }
