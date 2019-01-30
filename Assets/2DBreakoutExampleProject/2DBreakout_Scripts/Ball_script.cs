@@ -58,6 +58,7 @@ public class Ball_script : MonoBehaviour
 		//If The player pressed Space button & The ball is not inPlay (in moving)  & The game can start
         if (Input.GetButtonDown("Jump") && ballInPlay == false && GameManager_script.startGame)
         {
+            GameManager_script.gameReallyStarted = true;
             transform.parent = null;	//Disconnect the Ball from the Paddle
 			ballInPlay = true;		//The Ball is inPlay (is moving)
 			rb2D.isKinematic = false;       //Uncheck the isKinematic in the Rigidbody 2D
@@ -75,6 +76,7 @@ public class Ball_script : MonoBehaviour
 
     public void ResetBallPos()
     {
+        paddle.transform.position = new Vector3(0, -4f, 0);
         transform.SetParent(paddle.transform);
         rb2D.velocity = Vector2.zero;
         rb2D.isKinematic = true;
